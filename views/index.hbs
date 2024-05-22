@@ -1,2 +1,11 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<form action="#">
+    <label for="search">Cherches ta ville</label>
+    <input type="text" name="search" id="search" placeholder="Paris, Marseille...">
+</form>
+<div class="weather-data">
+    <ul>
+        <li>Ville: {{ city }}</li>
+        <li>Température: {{ temp }}</li>
+        <li>Description: {{ desc }}</li>
+    </ul>
+</div>
