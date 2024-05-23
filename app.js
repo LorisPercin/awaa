@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var fetchWeather = require('./utils/weather');
 
 var app = express();
 
@@ -22,6 +23,17 @@ app.get('/', function (req, res, next) {
   }
   res.render('index', options);
 });
+
+app.get('/weather', async function (req, res) {
+  const city = req.query.city
+  if (!req.query.city) {
+    return res.send({
+      error: "Le nom d'une ville est nécessaire !"
+    })
+  }
+
+  res.send(await fetchWeather(city.trim()))
+  })
 
 // catch 404 and forward to error handler
   app.use(function (req, res, next) {
