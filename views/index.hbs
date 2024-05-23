@@ -1,11 +1,13 @@
-<form action="#">
+<form id="search-form">
     <label for="search">Cherches ta ville</label>
     <input type="text" name="search" id="search" placeholder="Paris, Marseille...">
+    <button type="submit">Chercher</button>
 </form>
 <div class="weather-data">
+    <p id="error"></p>
     <ul>
-        <li>Ville: {{ city }}</li>
-        <li>Température: {{ temp }}</li>
-        <li>Description: {{ desc }}</li>
+        <li>Ville: <span id="data-city">{{ city }}</span></li>
+        <li>Température: <span id="data-temp">{{ temp }}</span></li>
+        <li>Description: <span id="data-desc">{{ desc }}</span></li>
     </ul>
 </div>
