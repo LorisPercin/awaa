@@ -27,25 +27,32 @@ async function getGeocodeData(city) {
 function extractWeatherConditionData(weatherId) {
   const weatherConditions = {
     2: {
-      description: "Orageux"
+      description: "Orageux",
+      icon: "cloud-lightning",
     },
     3: {
-      description: "Bruineux"
+      description: "Bruineux",
+      icon: "cloud-drizzle",
     },
     5: {
-      description: "Pluvieux"
+      description: "Pluvieux",
+      icon: "cloud-rain",
     },
     6: {
-      description: "Neigeux"
+      description: "Neigeux",
+      icon: "snowflake",
     },
     7: {
-      description: "Brumeux"
+      description: "Brumeux",
+      icon: "cloud-fog",
     },
     8: {
-      description: "Ensoleillé"
+      description: "Ensoleillé",
+      icon: "sun",
     },
     81: {
-      description: "Nuageux"
+      description: "Nuageux",
+      icon: "cloud-sun",
     }
   }
 

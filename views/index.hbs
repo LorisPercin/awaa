@@ -8,6 +8,12 @@
     <ul>
         <li>Ville: <span id="data-city">{{ city }}</span></li>
         <li>Température: <span id="data-temp">{{ temp }}</span></li>
-        <li>Description: <span id="data-desc">{{ desc }}</span></li>
+        <li>
+            Description:
+            <svg>
+                <image href="/images/weather_icons/{{ icon }}.svg" id="data-desc-icon"></image>
+            </svg>
+            <span id="data-desc">{{ desc }}</span>
+        </li>
     </ul>
 </div>

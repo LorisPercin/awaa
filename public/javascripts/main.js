@@ -3,6 +3,7 @@ const errorMsg = document.getElementById("error");
 const citySpan = document.getElementById("data-city");
 const tempSpan = document.getElementById("data-temp");
 const descSpan = document.getElementById("data-desc");
+const descIcon = document.getElementById("data-desc-icon");
 
 searchForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -15,8 +16,9 @@ searchForm.addEventListener("submit", async (e) => {
       } else {
         console.log(data)
         citySpan.textContent = `${data.name}, ${data.country}`;
-        tempSpan.textContent = data.temp + "°C"
+        tempSpan.textContent = data.temp + "°C";
         descSpan.textContent = data.weather.description;
+        descIcon.setAttribute("href", `/images/weather_icons/${data.weather.icon}.svg`);
       }
     })
   })
