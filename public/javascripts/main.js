@@ -16,7 +16,7 @@ searchForm.addEventListener("submit", async (e) => {
         console.log(data)
         citySpan.textContent = `${data.name}, ${data.country}`;
         tempSpan.textContent = data.temp + "°C"
-        descSpan.textContent = data.weather;
+        descSpan.textContent = data.weather.description;
       }
     })
   })

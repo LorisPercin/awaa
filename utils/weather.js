@@ -24,6 +24,40 @@ async function getGeocodeData(city) {
   };
 }
 
+function extractWeatherConditionData(weatherId) {
+  const weatherConditions = {
+    2: {
+      description: "Orageux"
+    },
+    3: {
+      description: "Bruineux"
+    },
+    5: {
+      description: "Pluvieux"
+    },
+    6: {
+      description: "Neigeux"
+    },
+    7: {
+      description: "Brumeux"
+    },
+    8: {
+      description: "Ensoleillé"
+    },
+    81: {
+      description: "Nuageux"
+    }
+  }
+
+  const weatherIdFront = weatherId.toString().charAt(0);
+
+  if (weatherIdFront === "8" && weatherId !== 800) {
+    return weatherConditions[81];
+  }
+
+  return weatherConditions[weatherIdFront];
+}
+
 async function getWeatherData(lat, lon) {
   const exclude = "minutely,hourly,daily,alerts"
   const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&exclude=${exclude}&units=metric&appid=${process.env.OPENWEATHER_KEY}`;
@@ -34,7 +68,13 @@ async function getWeatherData(lat, lon) {
     return {error: "Impossible de trouver la météo pour cette ville."};
   }
 
-  return await response.json();
+  const json = await response.json();
+
+
+  return {
+    temp: json.main.temp,
+    weather: extractWeatherConditionData(json.weather[0].id),
+  };
 }
 
 async function fetchWeather(city) {
@@ -51,8 +91,8 @@ async function fetchWeather(city) {
   return {
     name: geocodeData.name,
     country: geocodeData.country,
-    temp: weatherData.main.temp,
-    weather: weatherData.weather[0].main
+    temp: weatherData.temp,
+    weather: weatherData.weather
   };
 }
 
