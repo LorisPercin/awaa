@@ -19,7 +19,7 @@ services:
       - traefik.http.routers.awaa.entrypoints=web
       - traefik.http.routers.awaa.entrypoints=websecure
       - traefik.http.routers.awaa.tls=true
-      - traefik.http.routers.awaa.tls.certResolver=default
+      - traefik.http.routers.awaa.tls.certResolver=lets-encrypt
       - traefik.http.services.awaa.loadbalancer.server.port=3000
     networks:
       - web
