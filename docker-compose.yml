@@ -1,9 +1,10 @@
-#networks:
-#  web:
-#    external: true
+networks:
+  web:
+    external: true
 
 services:
-  server:
+  web:
+    image: lorispcin/awaa:latest
     build:
       context: .
     environment:
@@ -17,5 +18,5 @@ services:
       - traefik.http.routers.blog.tls=true
       - traefik.http.routers.blog.tls.certresolver=lets-encrypt
       - traefik.port=80
-  #    networks:
-  #      - web
+    networks:
+      - web
