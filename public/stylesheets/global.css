@@ -7,3 +7,28 @@ body {
 
     background: var(--clr-bg-base);
 }
+
+input[type="text"] {
+    background: var(--clr-transparent);
+    color: inherit;
+    border: none;
+    border-bottom: .3rem solid var(--clr-text);
+}
+input[type="text"]:focus-visible {
+    outline: none;
+    border-bottom: .3rem solid var(--clr-orange);
+}
+
+button {
+    color: var(--clr-bg-base);
+    padding:var(--space-xs) var(--space-xs);
+    background: var(--clr-green);
+    border-radius: .5rem;
+    border: none;
+}
+button:hover {
+    background: var(--clr-purple);
+}
+button:active {
+    background: var(--clr-blue);
+}

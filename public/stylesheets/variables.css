@@ -56,16 +56,16 @@
     --clr-bg-mantle: var(--ctp-frappe-mantle);
     --clr-bg-crust: var(--ctp-frappe-crust);
 
-    --clr-pink: var(--ctp-mocha-pink);
-    --clr-purple: var(--ctp-mocha-mauve);
-    --clr-red: var(--ctp-mocha-red);
-    --clr-orange: var(--ctp-mocha-peach);
-    --clr-yellow: var(--ctp-mocha-yellow);
-    --clr-green: var(--ctp-mocha-green);
-    --clr-cyan: var(--ctp-mocha-teal);
-    --clr-light-blue: var(--ctp-mocha-sky);
-    --clr-blue: var(--ctp-mocha-blue);
-    --clr-lavender: var(--ctp-mocha-lavender);
+    --clr-pink: var(--ctp-frappe-pink);
+    --clr-purple: var(--ctp-frappe-mauve);
+    --clr-red: var(--ctp-frappe-red);
+    --clr-orange: var(--ctp-frappe-peach);
+    --clr-yellow: var(--ctp-frappe-yellow);
+    --clr-green: var(--ctp-frappe-green);
+    --clr-cyan: var(--ctp-frappe-teal);
+    --clr-light-blue: var(--ctp-frappe-sky);
+    --clr-blue: var(--ctp-frappe-blue);
+    --clr-lavender: var(--ctp-frappe-lavender);
 
     --clr-transparent: rgb(0 0 0 / 0);
     --clr-error: var(--clr-red);
