@@ -14,7 +14,7 @@ searchForm.addEventListener("submit", async (e) => {
       if (data.error) {
         errorMsg.textContent = data.error
       } else {
-        console.log(data)
+        errorMsg.textContent = ""
         citySpan.textContent = `${data.name}, ${data.country}`;
         tempSpan.textContent = data.temp + "°C";
         descSpan.textContent = data.weather.description;
