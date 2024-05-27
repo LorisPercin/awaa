@@ -9,17 +9,14 @@ services:
       context: .
     environment:
       NODE_ENV: production
-    container_name: awaa
+    ports:
+      - 3000:3000
+    container_name: meteo
     restart: unless-stopped
     labels:
-      - traefik.enable=true
-      - traefik.docker.network=web
-      - traefik.http.routers.awaa.rule=Host(`meteo.lorisperc.in`)
-      - traefik.http.routers.awaa.service=web-awaa
-      - traefik.http.routers.awaa.entrypoints=web
-      - traefik.http.routers.awaa.entrypoints=websecure
-      - traefik.http.routers.awaa.tls=true
-      - traefik.http.routers.awaa.tls.certResolver=default
-      - traefik.http.services.awaa.loadbalancer.server.port=8080
+      - traefik.http.routers.blog.rule=Host(`meteo.lorisperc.in`)
+      - traefik.http.routers.blog.tls=true
+      - traefik.http.routers.blog.tls.certresolver=lets-encrypt
+      - traefik.port=80
     networks:
       - web
