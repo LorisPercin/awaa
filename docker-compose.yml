@@ -15,11 +15,11 @@ services:
       - traefik.enable=true
       - traefik.docker.network=web
       - traefik.http.routers.awaa.rule=Host(`meteo.lorisperc.in`)
-      - traefik.http.routers.awaa.service=web-awaa
+      - traefik.http.routers.awaa.service=awaa
       - traefik.http.routers.awaa.entrypoints=web
       - traefik.http.routers.awaa.entrypoints=websecure
       - traefik.http.routers.awaa.tls=true
       - traefik.http.routers.awaa.tls.certResolver=default
-      - traefik.http.services.awaa.loadbalancer.server.port=80
+      - traefik.http.services.awaa.loadbalancer.server.port=3000
     networks:
       - web
