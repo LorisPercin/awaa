@@ -20,6 +20,6 @@ services:
       - traefik.http.routers.awaa.entrypoints=websecure
       - traefik.http.routers.awaa.tls=true
       - traefik.http.routers.awaa.tls.certResolver=default
-      - "traefik.http.services.awaa.loadbalancer.server.port=8080
+      - traefik.http.services.awaa.loadbalancer.server.port=8080
     networks:
       - web
