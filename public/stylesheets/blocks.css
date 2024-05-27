@@ -1,0 +1,4 @@
+.weather-data {
+    border-radius: 1rem;
+    border: .5rem dashed var(--clr-yellow);
+}

@@ -1,19 +1,29 @@
-<form id="search-form">
-    <label for="search">Cherches ta ville</label>
-    <input type="text" name="search" id="search" placeholder="Paris, Marseille...">
-    <button type="submit">Chercher</button>
-</form>
-<div class="weather-data">
-    <p id="error"></p>
-    <ul>
-        <li>Ville: <span id="data-city">{{ city }}</span></li>
-        <li>Température: <span id="data-temp">{{ temp }}</span></li>
-        <li>
-            Description:
-            <svg>
-                <image href="/images/weather_icons/{{ icon }}.svg" id="data-desc-icon"></image>
-            </svg>
-            <span id="data-desc">{{ desc }}</span>
-        </li>
-    </ul>
-</div>
+<main class="cover">
+    <div class="centered center flow">
+        <form class="align-items-center flow flex" id="search-form">
+            <div class="stack">
+                <h1 class="text-align-center">
+                    <label for="search">Cherches la météo de ta ville</label>
+                </h1>
+                <input type="text" name="search" id="search" placeholder="Paris, Marseille...">
+            </div>
+            <button type="submit">Changer de ville</button>
+        </form>
+        <div class="weather-data">
+            <p class="error" id="error"></p>
+            <ul role="list">
+                <li>Ville: <span id="data-city">{{ city }}</span></li>
+                <li>Température: <span id="data-temp">{{ temp }}</span></li>
+                <li>
+                    Description:
+                    <div class="with-icon">
+                        <svg class="icon">
+                            <image href="/images/weather_icons/{{ icon }}.svg" id="data-desc-icon"></image>
+                        </svg>
+                        <span id="data-desc">{{ desc }}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
