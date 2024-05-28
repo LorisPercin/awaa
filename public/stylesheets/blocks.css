@@ -3,3 +3,8 @@
     border-radius: 1rem;
     border: .5rem dashed var(--clr-yellow);
 }
+
+.local-time {
+    font-size: var(--step-7);
+    text-align: center;
+}

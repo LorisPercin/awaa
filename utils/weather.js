@@ -77,9 +77,9 @@ async function getWeatherData(lat, lon) {
 
   const json = await response.json();
 
-
   return {
     temp: json.main.temp,
+    timestamp: (json.dt + json.timezone) * 1000,
     weather: extractWeatherConditionData(json.weather[0].id),
   };
 }
@@ -96,10 +96,8 @@ async function fetchWeather(city) {
   }
 
   return {
-    name: geocodeData.name,
-    country: geocodeData.country,
-    temp: weatherData.temp,
-    weather: weatherData.weather
+    ...weatherData,
+    ...geocodeData
   };
 }
 

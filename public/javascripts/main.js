@@ -5,6 +5,9 @@ const tempSpan = document.getElementById("data-temp");
 const descSpan = document.getElementById("data-desc");
 const descIcon = document.getElementById("data-desc-icon");
 
+let localTimestamp = 0;
+let clockStarted = false;
+
 searchForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const city = new FormData(searchForm).get("search");
@@ -19,7 +22,32 @@ searchForm.addEventListener("submit", async (e) => {
         tempSpan.textContent = data.temp + "°C";
         descSpan.textContent = data.weather.description;
         descIcon.setAttribute("href", `/images/weather_icons/${data.weather.icon}.svg`);
+        localTimestamp = data.timestamp;
+        if (!clockStarted) {
+          clockStarted = true;
+          startClock();
+        }
       }
     })
   })
 })
+
+
+function displayTime(date) {
+  let h = date.getUTCHours();
+  let m = date.getUTCMinutes();
+  let s = date.getUTCSeconds();
+
+  // Make single digits into number
+  h = (h < 10) ? "0" + h : h;
+  m = (m < 10) ? "0" + m : m;
+  s = (s < 10) ? "0" + s : s;
+
+  document.getElementById("local-time").innerText = h + ":" + m + ":" + s;
+}
+
+function startClock() {
+  displayTime(new Date(localTimestamp));
+  localTimestamp += 1000
+  setTimeout(startClock, 1000);
+}
