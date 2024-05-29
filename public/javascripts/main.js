@@ -7,6 +7,8 @@ const descIcon = document.getElementById("data-desc-icon");
 const randomColorElements = document.querySelectorAll("[data-color='random']");
 
 let localTimestamp = new Date().getTime();
+let lastCallDate = 99999;
+let lastSearch = "";
 
 startClock();
 setRandomColors(randomColorElements);
@@ -16,9 +18,19 @@ searchForm.addEventListener("submit", async (e) => {
 
   setRandomColors(randomColorElements);
 
+  const callDate = new Date();
   const city = new FormData(searchForm).get("search");
+
+  // Verify time between same searches to reduce api credit usage
+  if ((callDate - lastCallDate) / 1000 <= 60 && city === lastSearch) {
+    return;
+  }
+
   fetch("/weather?city=" + city).then((response) => {
     response.json().then((data) => {
+      lastCallDate = callDate;
+      lastSearch = city;
+
       if (data.error) {
         errorMsg.textContent = data.error
       } else {
@@ -27,6 +39,7 @@ searchForm.addEventListener("submit", async (e) => {
         tempSpan.textContent = data.temp + "°C";
         descSpan.textContent = data.weather.description;
         descIcon.setAttribute("href", `/images/weather_icons/${data.weather.icon}.svg`);
+
         localTimestamp = data.timestamp;
       }
     })
