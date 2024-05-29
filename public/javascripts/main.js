@@ -4,6 +4,7 @@ const citySpan = document.getElementById("data-city");
 const tempSpan = document.getElementById("data-temp");
 const descSpan = document.getElementById("data-desc");
 const descIcon = document.getElementById("data-desc-icon");
+const randomColorElements = document.querySelectorAll("[data-color='random']");
 
 let localTimestamp = new Date().getTime();
 
@@ -12,7 +13,7 @@ startClock();
 searchForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  setRandomColors();
+  setRandomColors(randomColorElements);
 
   const city = new FormData(searchForm).get("search");
   fetch("/weather?city=" + city).then((response) => {
@@ -31,10 +32,9 @@ searchForm.addEventListener("submit", async (e) => {
   })
 })
 
-function setRandomColors() {
+function setRandomColors(elements) {
   const colors = ["--clr-pink", "--clr-purple", "--clr-orange", "--clr-yellow", "--clr-green", "--clr-cyan", "--clr-light-blue", "--clr-blue", "--clr-lavender"];
-  const randomColorElements = document.querySelectorAll("[data-color='random']");
-  randomColorElements.forEach(el => {
+  elements.forEach(el => {
     el.style.setProperty("--element-color", `var(${colors[Math.floor(Math.random() * colors.length)]})`);
   })
 }
