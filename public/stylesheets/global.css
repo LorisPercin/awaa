@@ -9,7 +9,6 @@ body {
 }
 
 input[type="text"] {
-    --element-color: var(--clr-orange);
     background: var(--clr-transparent);
     color: inherit;
     border: none;
@@ -17,20 +16,19 @@ input[type="text"] {
 }
 input[type="text"]:focus-visible {
     outline: none;
-    border-bottom: .3rem solid var(--element-color);
+    border-bottom: .3rem solid var(--element-color, var(--clr-orange));
 }
 
 button {
-    --element-color: var(--clr-green);
     color: var(--clr-bg-base);
     padding:var(--space-xs) var(--space-xs);
-    background: var(--element-color);
+    background: var(--element-color, var(--clr-green));
     border-radius: .5rem;
     border: none;
 }
 button:hover {
-    background: var(--clr-purple);
+    background: var(--hover-element-color, var(--clr-purple));
 }
 button:active {
-    background: var(--clr-blue);
+    background: var(--active-element-color, var(--clr-blue));
 }

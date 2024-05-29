@@ -1,8 +1,7 @@
 .weather-data {
-    --element-color: var(--clr-yellow);
     padding: var(--space-s);
     border-radius: 1rem;
-    border: .5rem dashed var(--element-color);
+    border: .5rem dashed var(--element-color, var(--clr-yellow));
 }
 
 .local-time {

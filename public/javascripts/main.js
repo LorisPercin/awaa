@@ -37,6 +37,8 @@ function setRandomColors(elements) {
   const colors = ["--clr-pink", "--clr-purple", "--clr-orange", "--clr-yellow", "--clr-green", "--clr-cyan", "--clr-light-blue", "--clr-blue", "--clr-lavender"];
   elements.forEach(el => {
     el.style.setProperty("--element-color", `var(${colors[Math.floor(Math.random() * colors.length)]})`);
+    el.style.setProperty("--hover-element-color", `var(${colors[Math.floor(Math.random() * colors.length)]})`);
+    el.style.setProperty("--active-element-color", `var(${colors[Math.floor(Math.random() * colors.length)]})`);
   })
 }
 
