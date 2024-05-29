@@ -11,8 +11,10 @@ startClock();
 
 searchForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const city = new FormData(searchForm).get("search");
 
+  setRandomColors();
+
+  const city = new FormData(searchForm).get("search");
   fetch("/weather?city=" + city).then((response) => {
     response.json().then((data) => {
       if (data.error) {
@@ -28,6 +30,14 @@ searchForm.addEventListener("submit", async (e) => {
     })
   })
 })
+
+function setRandomColors() {
+  const colors = ["--clr-pink", "--clr-purple", "--clr-orange", "--clr-yellow", "--clr-green", "--clr-cyan", "--clr-light-blue", "--clr-blue", "--clr-lavender"];
+  const randomColorElements = document.querySelectorAll("[data-color='random']");
+  randomColorElements.forEach(el => {
+    el.style.setProperty("--element-color", `var(${colors[Math.floor(Math.random() * colors.length)]})`);
+  })
+}
 
 
 function displayTime(date) {

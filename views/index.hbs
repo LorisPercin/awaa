@@ -6,11 +6,11 @@
                 <h1 class="text-align-center">
                     <label for="search">Cherches la météo de ta ville</label>
                 </h1>
-                <input type="text" name="search" id="search" placeholder="Paris, Marseille...">
+                <input type="text" name="search" id="search" placeholder="Paris, Marseille..." data-color="random">
             </div>
-            <button type="submit">Chercher la ville</button>
+            <button type="submit" data-color="random">Chercher la ville</button>
         </form>
-        <div class="weather-data flow">
+        <div class="weather-data flow" data-color="random">
             <p class="error" id="error"></p>
             <ul role="list">
                 <li>Ville: <span id="data-city">{{ city }}</span></li>

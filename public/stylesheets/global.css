@@ -9,6 +9,7 @@ body {
 }
 
 input[type="text"] {
+    --element-color: var(--clr-orange);
     background: var(--clr-transparent);
     color: inherit;
     border: none;
@@ -16,13 +17,14 @@ input[type="text"] {
 }
 input[type="text"]:focus-visible {
     outline: none;
-    border-bottom: .3rem solid var(--clr-orange);
+    border-bottom: .3rem solid var(--element-color);
 }
 
 button {
+    --element-color: var(--clr-green);
     color: var(--clr-bg-base);
     padding:var(--space-xs) var(--space-xs);
-    background: var(--clr-green);
+    background: var(--element-color);
     border-radius: .5rem;
     border: none;
 }
