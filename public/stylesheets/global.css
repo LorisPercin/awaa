@@ -26,8 +26,12 @@ button {
     border-radius: .5rem;
     border: none;
 }
-button:hover {
+button:active, button:focus, button:hover{
+    transition: transform 350ms cubic-bezier(0,.26,.13,1.55), background 150ms, color 150ms;
+}
+button:hover, button:focus {
     background: var(--hover-element-color, var(--clr-purple));
+    transform: scale(1.05);
 }
 button:active {
     background: var(--active-element-color, var(--clr-blue));

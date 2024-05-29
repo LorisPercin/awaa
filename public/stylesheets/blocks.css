@@ -8,3 +8,7 @@
     font-size: var(--step-7);
     text-align: center;
 }
+
+*[data-color="random"] {
+    transition: background 150ms, color 150ms, border-bottom 150ms, border 150ms;
+}
