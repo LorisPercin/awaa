@@ -5,8 +5,9 @@ const tempSpan = document.getElementById("data-temp");
 const descSpan = document.getElementById("data-desc");
 const descIcon = document.getElementById("data-desc-icon");
 
-let localTimestamp = 0;
-let clockStarted = false;
+let localTimestamp = new Date().getTime();
+
+startClock();
 
 searchForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -23,10 +24,6 @@ searchForm.addEventListener("submit", async (e) => {
         descSpan.textContent = data.weather.description;
         descIcon.setAttribute("href", `/images/weather_icons/${data.weather.icon}.svg`);
         localTimestamp = data.timestamp;
-        if (!clockStarted) {
-          clockStarted = true;
-          startClock();
-        }
       }
     })
   })

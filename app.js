@@ -18,8 +18,20 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res, next) {
+  const date = new Date();
+
+  let h = date.getUTCHours();
+  let m = date.getUTCMinutes();
+  let s = date.getUTCSeconds();
+
+  // Make single digits into number
+  h = (h < 10) ? "0" + h : h;
+  m = (m < 10) ? "0" + m : m;
+  s = (s < 10) ? "0" + s : s;
+
   let options = {
-    title: "(Encore) Une application météo"
+    title: "(Encore) Une application météo",
+    dateString: h + ":" + m + ":" + s
   }
   res.render('index', options);
 });
