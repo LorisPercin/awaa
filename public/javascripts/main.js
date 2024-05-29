@@ -9,6 +9,7 @@ const randomColorElements = document.querySelectorAll("[data-color='random']");
 let localTimestamp = new Date().getTime();
 
 startClock();
+setRandomColors(randomColorElements);
 
 searchForm.addEventListener("submit", async (e) => {
   e.preventDefault();
